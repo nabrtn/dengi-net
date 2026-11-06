@@ -82,16 +82,17 @@ a{color:inherit}
 .line--indent{margin-left:.6em}
 .line--accented{
   background:var(--ultra);color:var(--paper);
-  display:inline-block; /* было block, стало inline-block */
-  max-width:100%; /* не дает вылезти за экран */
-  font-size:clamp(20px, 7.8vw, 60px); /* делаем шрифт чуть меньше, чтобы точно влез */
+  display:inline-block; 
+  max-width:100%; 
+  font-size:clamp(20px, 7.8vw, 60px); 
   letter-spacing:-.02em;
-  white-space:nowrap; /* оставляем запрет на перенос строки */
-  padding:.04em .14em;margin-top:.08em;
+  white-space:nowrap; 
+  padding:.04em .25em; /* УВЕЛИЧИЛИ ОТСТУП СПРАВА (было .14em) */
+  line-height:1.3; /* ДОБАВИЛИ, чтобы буквы не резались сверху и снизу */
+  margin-top:.08em;
   transform:rotate(-1.2deg);
   box-shadow:var(--hard-sm);
 }
-
 .accent--lime{color:var(--lime)}
 .accent--coral{color:var(--coral)}
 .line--accented .accent--coral{color:var(--lime)}
