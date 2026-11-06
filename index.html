@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F2EFE8">
+<title>ДЕНЕГ НЕТ, НО ВЫ ДЕРЖИТЕСЬ — игра про прайсы Калининграда</title>
+<meta name="description" content="Угадывай цены на аренду жилья в Калининграде. Три режима, реальные объявления, жёсткие прайсы.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=IBM+Plex+Mono:wght@400;500;700&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Бегущая строка -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track" id="tickerTrack"></div>
+</div>
+
+<!-- ЭКРАН: МЕНЮ -->
+<section class="screen screen--menu" id="screenMenu">
+  <header class="masthead">
+    <div class="masthead__meta">
+      <span class="tag tag--mono">КАЛИНИНГРАД / СУТОКИ</span>
+      <span class="tag tag--mono">ДАННЫЕ: AVITO, 50 ОБЪЯВЛЕНИЙ</span>
+    </div>
+    <h1 class="masthead__title">
+      <span class="line">ДЕНЕГ</span>
+      <span class="line line--indent">НЕТ<span class="accent accent--lime">,</span></span>
+      <span class="line">НО ВЫ</span>
+      <span class="line line--accented">ДЕРЖИТЕСЬ<em class="accent accent--coral">.</em></span>
+    </h1>
+    <p class="masthead__sub">
+      Смотришь квартиру — угадываешь, сколько стоит ночь.
+      Объявления и цены настоящие, калининградские.
+    </p>
+
+    <div class="menu-foot">
+      <div class="menu-foot__col">
+        <h2 class="menu-foot__h">СЧЁТ</h2>
+        <p>до 100 за раунд, до 1000 за игру. ошибка до 5% — имба, дальше очки тают.</p>
+      </div>
+      <div class="menu-foot__col">
+        <h2 class="menu-foot__h">ПРАВИЛА</h2>
+        <p>цены не показываем. чекни фото, ставь прайс, жми «зачекать».</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="modes" id="modesBlock">
+    <button class="mode mode--main" data-mode="1">
+      <span class="mode__index">01</span>
+      <span class="mode__body">
+        <span class="mode__name">УГАДАЙ ПРАЙС</span>
+        <span class="mode__desc">10 квартир. Слайдер. Насколько ты оторван от реальности?</span>
+      </span>
+      <span class="mode__best" id="best1"></span>
+    </button>
+    <button class="mode" data-mode="2">
+      <span class="mode__index">02</span>
+      <span class="mode__body">
+        <span class="mode__name">ЧТО ДОРОЖЕ?</span>
+        <span class="mode__desc">Две квартиры. Одна логика. Цена не всегда очевидна.</span>
+      </span>
+      <span class="mode__best" id="best2"></span>
+    </button>
+    <button class="mode" data-mode="3">
+      <span class="mode__index">03</span>
+      <span class="mode__body">
+        <span class="mode__name">ВЛЕЗЕШЬ В БЮДЖЕТ?</span>
+        <span class="mode__desc">Бюджет известен, цены — нет. Выбирай квартиру по фото.</span>
+      </span>
+      <span class="mode__best" id="best3"></span>
+    </button>
+
+    <button class="btn btn--resume hidden" id="btnResume"></button>
+  </div>
+
+  <footer class="menu-foot menu-foot--bottom">
+    <div class="menu-foot__col">
+      <h2 class="menu-foot__h">ДАННЫЕ</h2>
+      <p>50 реальных объявлений аренды в Калининграде. цены за ночь, осень 2026.</p>
+    </div>
+  </footer>
+</section>
+
+<!-- ЭКРАН: ИГРА -->
+<section class="screen screen--game hidden" id="screenGame">
+  <header class="gamebar">
+    <button class="gamebar__back" id="btnExit" aria-label="В меню">✕</button>
+    <div class="gamebar__mid">
+      <span class="gamebar__mode" id="gameModeName"></span>
+      <span class="gamebar__progress"><b id="gameRoundNow">1</b>/10</span>
+    </div>
+    <div class="gamebar__score" id="gameScore">0</div>
+  </header>
+
+  <div class="game-plate" id="gamePlate" hidden></div>
+
+  <main class="stage" id="stage"></main>
+</section>
+
+<!-- ЭКРАН: ИТОГИ -->
+<section class="screen screen--final hidden" id="screenFinal">
+  <div class="final" id="finalContent"></div>
+</section>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="data.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
