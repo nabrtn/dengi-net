@@ -83,11 +83,13 @@ a{color:inherit}
 .line--accented{
   background:var(--ultra);color:var(--paper);
   display:block;width:max-content;max-width:100%;
-  font-size:.82em;letter-spacing:-.02em;white-space:nowrap;
+  font-size:clamp(24px, 8.5vw, 62px); /* <-- ИЗМЕНЕНИЕ ЗДЕСЬ */
+  letter-spacing:-.02em;white-space:nowrap;
   padding:.04em .14em;margin-top:.08em;
   transform:rotate(-1.2deg);
   box-shadow:var(--hard-sm);
 }
+
 .accent--lime{color:var(--lime)}
 .accent--coral{color:var(--coral)}
 .line--accented .accent--coral{color:var(--lime)}
@@ -453,4 +455,3 @@ input[type=range]::-moz-range-thumb{
 @media(min-width:700px){
   .screen{padding-top:10px}
   .masthead__title{font-size:84px}
-}
