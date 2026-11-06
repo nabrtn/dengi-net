@@ -82,9 +82,11 @@ a{color:inherit}
 .line--indent{margin-left:.6em}
 .line--accented{
   background:var(--ultra);color:var(--paper);
-  display:block;width:max-content;max-width:100%;
-  font-size:clamp(24px, 8.5vw, 62px); /* <-- ИЗМЕНЕНИЕ ЗДЕСЬ */
-  letter-spacing:-.02em;white-space:nowrap;
+  display:inline-block; /* было block, стало inline-block */
+  max-width:100%; /* не дает вылезти за экран */
+  font-size:clamp(20px, 7.8vw, 60px); /* делаем шрифт чуть меньше, чтобы точно влез */
+  letter-spacing:-.02em;
+  white-space:nowrap; /* оставляем запрет на перенос строки */
   padding:.04em .14em;margin-top:.08em;
   transform:rotate(-1.2deg);
   box-shadow:var(--hard-sm);
