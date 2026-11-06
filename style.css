@@ -458,3 +458,8 @@ input[type=range]::-moz-range-thumb{
 @media(min-width:700px){
   .screen{padding-top:10px}
   .masthead__title{font-size:84px}
+   .accent, .accent--lime, .accent--coral {
+  box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+}
